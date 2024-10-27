@@ -30,8 +30,6 @@ public class RNG {
                 }
                 if (userIn == randomNumber) {
                     System.out.println("You got it right!");
-                    System.out.println("Would you like to play again? (Y/N)");
-                    quit = input.nextLine();
                     /*
                      * (2) Whenever the user guesses the correct number, the remainingNumbers array restores its values
                      * from 1 to 20 (read comment (3) for context). The purpose of resetting the array
@@ -39,25 +37,30 @@ public class RNG {
                      * "You already tried that number. Try again!" when entering numbers that were entered in the first
                      * play through.
                      */
-                    for (int i=0; i<remainingNumbers.length; i++){
+                    for (int i = 0; i < remainingNumbers.length; i++) {
                         remainingNumbers[i] = i + 1;
                     }
+                    System.out.println("Would you like to play again? Type N to quit, Type anything else to continue.");
+                    quit = input.nextLine();
+
                   /*
                    * Read comment (3) for context
                    */
                 } else if (remainingNumbers[userIn - 1] == 0) {
+
                     System.out.println("You already tried that number. Try again!");
 
                 } else {
                     System.out.println("You got it wrong. Try again!");
+
+                    /*
+                     * (3) For every wrong number the user guesses, that number will be set to 0 in the remainingNumbers
+                     * array. userIn - 1 is used since array indexes start from 0 so if the user selects the number 9
+                     * for example, in the array, the number 9 is of index 8.
+                     */
+                    remainingNumbers[userIn - 1] = 0;
                 }
 
-                /*
-                 * (3) For every wrong number the user guesses, that number will be set to 0 in the remainingNumbers
-                 * array. userIn - 1 is used since array indexes start from 0 if the user selects the number 9
-                 * (for example, in the array, the number 9 is of index 8).
-                 */
-                remainingNumbers[userIn - 1] = 0;
             }
             /*
              * Loops until the correct number is guessed.
