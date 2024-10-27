@@ -1,9 +1,9 @@
-### IntelliJ IDEA ###
+# Ignore IntelliJ IDEA files
+.idea/
 out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+*.class
 
-### Eclipse ###
+# Ignore Eclipse files
 .apt_generated
 .classpath
 .factorypath
@@ -12,18 +12,16 @@ out/
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
 
-### NetBeans ###
+# Ignore NetBeans files
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
+# Ignore VS Code files
 .vscode/
 
-### Mac OS ###
+# Ignore Mac OS files
 .DS_Store
